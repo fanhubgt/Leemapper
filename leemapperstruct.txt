@@ -1,0 +1,466 @@
+SUPPLEMENTARY MATERIAL ON ARTICLE: MAPPING OF LEE ON ENACT AND ENGAGEMENT.
+
+       C++ PROGRAMMING: LEELUS Type Language
+=============================================
+       HEADER STRUCTURES
+=============================================
+//
+// File:   LEEType.h
+// Author: appiah
+//
+// Created on August,2020 00:3
+
+
+#ifndef _LEETYPE_H
+#define	_LEETYPE_H
+
+typedef char* action;
+typedef char* location;
+typedef char* temporal;
+typedef char* rank;
+typedef char* interest;
+
+#endif	/* _LEETYPE_H */
+
+
+//
+// File:   Enact.h
+// Author: appiah
+//
+//
+#include "LEEType.h"
+
+
+#ifndef _ENACTAGE_H
+#define	_ENACTAGE_H
+
+//using namespace std;
+
+class Enactage{
+public:
+    Enactage();
+    Enactage(action a, location l, temporal t);
+    void setAction(action a);
+    void setLocation(location l);
+    void setTemporal(temporal t);
+    action getAction();
+    location getLocation();
+    temporal getTemporal();
+private:
+    action act;
+    location loc;
+    temporal temp;
+};
+
+#endif	/* _ENACTAGE_H */
+
+// 
+// File:   enactEL.h
+// Author: appiah
+//
+#include "LEEType.h"
+#include "Enactage.h"
+#include "Enact.h"
+
+#ifndef _ENACTEL_H
+#define	_ENACTEL_H
+
+
+class enactEL{
+public:
+    enactEL();
+    enactEL(Enactage E, Enact L);
+    Enactage getEnactage();
+    Enact getEnactmentL();
+private :
+    Enactage E;
+    Enact L;
+};
+
+#endif	/* _ENACTEL_H */
+
+
+//
+// File:   Enactage.h
+// Author: appiah
+//
+//
+
+#include "LEEType.h"
+#ifndef _ENACT_H
+#define	_ENACT_H
+
+using namespace std;
+
+
+class Enact{
+public:
+    Enact();
+    Enact(interest inrs1, interest inrs2);
+    Enact(interest inrs1, interest inrs2, rank r);
+    void setInterests(interest inrs1, interest inrs2);
+    void setRank(rank r);
+    rank getRank();
+    interest* getInterests();
+private:
+    rank R;
+    interest IRS[2];
+    interest IT1;
+    interest IT2;
+};
+
+#endif	/* _ENACT_H */
+
+// 
+// File:   interestact.h
+// Author: appiah
+//
+//
+
+#include "LEEType.h"
+#include "Enactage.h"
+#include "Enact.h"
+
+#ifndef _INTERESTACT_H
+#define	_INTERESTACT_H
+
+class interestact{
+public:
+    interestact();
+    interestact(Enactage ia, Enact en);
+protected:
+    Enactage I;
+    Enact A;
+};
+
+
+
+#endif	/* _INTERESTACT_H */
+
+//
+// File:   locationact.h
+// Author: appiah
+//
+//
+#include "Enactage.h"
+
+#ifndef _LOCATIONACT_H
+#define	_LOCATIONACT_H
+
+class locationact{
+public:
+    locationact();
+    locationact(Enactage locact);
+    Enactage getEngagement();
+private:
+    Enactage locAct;
+};
+
+#endif	/* _LOCATIONACT_H */
+
+
+
+//
+// File:   ImplieStruct.h
+// Author: appiah
+//
+//
+
+#include "Enact.h"
+#include "Enactage.h"
+
+
+#ifndef _TEMPORALRANK_H
+#define	_TEMPORALRANK_H
+
+
+
+class temporalrank{
+public:
+    temporalrank();
+    temporalrank(Enact ee, Enactage eage);
+    Enact getEnactment();
+    Enactage getEngagement();
+    char* toString();
+protected:
+    Enact T;
+    Enactage R;
+};
+#endif	/* _TEMPORALRANK_H */
+
+
+//
+// File:   IsImplies.h
+// Author: appiah
+//
+//
+
+#include "LEEType.h"
+#include "temporalrank.h"
+#include "Enact.h"
+#include "enactEL.h"
+#include "locationact.h"
+#include "Enactage.h"
+#include "interestact.h"
+
+//using namespace lee::ture;
+
+#ifndef _ISIMPLIES_H
+#define	_ISIMPLIES_H
+
+
+class IsImplies{
+public:
+    IsImplies();
+    void setEnact1(Enactage E, Enact L);
+    void setInterestAct1(Enactage I, action A);
+    void setLocationAct1(location Loc, action Ac);
+    void setTemporalRank1(temporal T, rank R);
+    enactEL getEnact();
+    locationact getLocationAct();
+    temporalrank getTemporalRank();
+    interestact getInterestAct();
+    void setEnact(enactEL EL);
+    void setInterestAct(interestact IA);
+    void setLocationAct(locationact LA);
+    void setTemporalRank(temporalrank TR);
+private:
+    temporalrank TR;
+    locationact LA;
+    enactEL EL;
+    interestact IA;
+    Enactage E;
+    Enact L;
+    rank R;
+    action A;
+    Enactage I;
+    location Loc;
+    temporal T;
+};
+#endif	/* _ISIMPLIES_H */
+
+
+
+=========================================
+    	     C++ CLASSES  
+  SOURCE CODES ON LEE IMPLEMENTATION. 
+=========================================
+
+
+#include "Enact.h"
+
+Enact::Enact(){
+    
+}
+
+Enact::Enact(interest inr1, interest inr2):
+IT1(inr1),
+IT2(inr2){
+    
+}
+
+Enact::Enact(interest inr3, interest inr4, rank r){
+    IT1=inr3;
+    IT2=inr4;
+    R=r;
+}
+
+interest* Enact::getInterests(){
+    IRS[0]=IT1;
+    IRS[1]=IT2;
+    
+    return IRS;
+}
+
+rank Enact::getRank(){
+    return R;
+}
+
+void Enact::setInterests(interest i1, interest i2){
+    IT1=i1;
+    IT2=i2;
+}
+
+void Enact::setRank(rank r)
+{
+    R=r;
+}
+
+
+
+#include "enactEL.h"
+
+enactEL::enactEL(){
+    
+}
+
+Enactage enactEL::getEnactage(){
+    return E;
+}
+
+Enact enactEL::getEnactmentL(){
+    return L;
+}
+
+enactEL::enactEL(Enactage e, Enact l) {
+    L.setInterests(l.getInterests()[0], l.getInterests()[1]);
+    L.setRank(l.getRank());
+    E.setAction(e.getAction());
+    E.setLocation(e.getLocation());
+    E.setTemporal(e.getTemporal());
+}
+
+
+#include "Enactage.h"
+
+Enactage::Enactage(){
+    
+}
+
+Enactage::Enactage(action a, location l, temporal t):
+act(a),
+loc(l),
+temp(t){
+    
+}
+action Enactage::getAction(){
+    return act;
+}
+
+temporal Enactage::getTemporal(){
+    return temp;
+}
+
+location Enactage::getLocation(){
+    return loc;
+}
+
+void Enactage::setAction(action a){
+    act=a;
+}
+
+void Enactage::setLocation(location l){
+    loc=l;
+}
+
+void Enactage::setTemporal(temporal t){
+    temp=t;
+}
+
+#include "interestact.h"
+
+interestact::interestact(){
+//    A=new Enact();
+ //   I=new Enactage();
+}
+
+interestact::interestact(Enactage ia, Enact en):
+A(en),
+I(ia){
+    
+}
+
+#include "IsImplies.h"
+#include "interestact.h"
+#include "temporalrank.h"
+#include "enactEL.h"
+#include "Enact.h"
+#include "Enactage.h"
+
+IsImplies::IsImplies(){    
+}
+
+enactEL IsImplies::getEnact(){
+    return EL;
+}
+
+interestact IsImplies::getInterestAct(){
+    return IA;
+}
+
+locationact IsImplies::getLocationAct(){
+    return LA;
+}
+
+temporalrank IsImplies::getTemporalRank(){
+    return TR;
+}
+
+void IsImplies::setEnact(enactEL el){
+    EL=el;
+}
+
+void IsImplies::setEnact1(Enactage e, Enact l){
+    E.setAction(e.getAction());
+    E.setLocation(e.getLocation());
+    E.setTemporal(e.getTemporal());
+    L.setInterests(l.getInterests()[0],l.getInterests()[1]);
+    L.setRank(l.getRank());
+}
+
+void IsImplies::setInterestAct(interestact ia){
+    IA=ia;
+}
+
+void IsImplies::setInterestAct1(Enactage i, action a){
+    char* ir=i.getAction();
+    char* lr1=i.getLocation();
+    I.setAction(ir);
+    I.setLocation(lr1);
+    I.setAction(a);
+    A=a;
+}
+
+void IsImplies::setLocationAct1(location loc, action A){
+    Loc=loc;
+    A=A;
+}
+
+void IsImplies::setTemporalRank1(temporal T, rank R){
+    T=T;
+    R=R;
+}
+
+void IsImplies::setTemporalRank(temporalrank tr){
+    TR=tr;
+}
+
+
+#include "locationact.h"
+
+locationact::locationact(){
+    
+}
+
+locationact::locationact(Enactage la){
+     locAct=la;    
+}
+
+Enactage locationact::getEngagement(){
+    return locAct;
+}
+
+
+
+#include "temporalrank.h"
+
+temporalrank::temporalrank(){
+    
+}
+
+temporalrank::temporalrank(Enact ee, Enactage age){
+    R=age;
+    T=ee;
+}
+
+Enact temporalrank::getEnactment(){
+    return T;
+}
+
+Enactage temporalrank::getEngagement(){
+    return R;
+}
+
+char* temporalrank::toString(){
+    return "rank_i---> t";
+}
