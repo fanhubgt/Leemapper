@@ -13,3 +13,6 @@ Download the bin file to run Linux only for now.
 Unzip and open the directory on command line. 
 Type ./leemapper to execute program.
 
+It is an interpreter so requires passing parameter values from command line. 
+
+
