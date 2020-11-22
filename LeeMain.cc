@@ -33,7 +33,7 @@ using namespace std;
 
 namespace{
 
-    //typed variables that you change values
+    //typed variables that you can change values
 
     action a="buy", a1="sell", a2="sold", a3="trade";
     
@@ -42,7 +42,7 @@ namespace{
     location loc="tottenham", loc1="London";
     temporal temp="Sat 12/09/2019 12:00pm";
     
-  // end of changes 
+  // end of possible changes 
 
     std::string go;
     IsImplies is;
