@@ -13,6 +13,8 @@ Download the bin file to run Linux only for now.
 Unzip and open the directory on command line. 
 Type ./leemapper to execute program.
 
-It is not an interpreter so requires passing parameter values from typed variables and recompile to get executable. . 
+It is not an interpreter or system so requires passing parameter values to typed variables all times in LeeMain and recompile to get executable. 
+
+The interpreter version and system version are all available to be checked in later. Just watch. 
 
 
