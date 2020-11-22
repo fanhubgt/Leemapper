@@ -5,3 +5,11 @@ It is required to have Netbeans C++ plug in to compile the Leemapper-src package
 
 
 Reference : Doctoral Thesis on Procurement Agent in Trusted Enact Language with Object-Oriented Software called LEEMapper developed with C++. 
+
+
+Run:
+
+Download the bin file to run Linux only for now. 
+Unzip and open the directory on command line. 
+Type ./leemapper to execute program.
+
