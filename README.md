@@ -1,5 +1,6 @@
 # Leemapper
 It is about procurement agent reasoning and planning in a trusted and risky environment runs. This is coded as a c++ program to allow agents think in such situations by trusted parties. 
+<img src="https://github.com/fanhubgt/Leemapper/blob/985e3efe82a0c664bd86b7691c1c0b3252469b91/IMG_20201122_140623.jpg"/>
 
 It is required to have Netbeans C++ plug in to compile the Leemapper-src package. To go with geek way just create a c++ project with name Leemapper and copy the source codes to that project directory and compile. 
 
