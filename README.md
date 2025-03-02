@@ -15,6 +15,8 @@ Type ./leemapper to execute program.
 
 It is not an interpreter or system so requires passing parameter values to typed variables all times in LeeMain and recompile to get executable. 
 
+<img src="https://github.com/fanhubgt/Leemapper/blob/4182ca298824279eb74a2951e8f3bb5f892ffe2c/IMG_20201122_140820.jpg"/>
+
 The interpreter version and system version are all available to be checked in later. Just watch. 
 
 
